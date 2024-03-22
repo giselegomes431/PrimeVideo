@@ -12,6 +12,6 @@ export const MOVIESCRIME = [
   {
     id: "3",
     name: "Dark Knight",
-    moviesURL: require("../assets/movies/dark-knight.png"),
+    moviesURL: require("../assets/movies/american_hustle.png"),
   },
 ];

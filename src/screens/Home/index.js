@@ -12,8 +12,10 @@ import AmazonLogo from "../../assets/amazon_logo.png";
 import MovieTheWheel from "../../assets/movies/the_wheel_of_time.png"
 import { MOVIESWATCHING } from "../../utils/moviesWatching";
 import MoviesCard from "../../components/MoviesCard";
+import MoviesCard2 from "../../components/MoviesCard2";
 import { MOVIESCRIME } from "../../utils/moviesCrimes";
 import { MOVIESWATCH } from "../../utils/moviesWatch";
+import { AntDesign } from '@expo/vector-icons';
 
 export default function Home() {
   return (
@@ -50,18 +52,22 @@ export default function Home() {
         showsVerticalScrollIndicator={false}
         style={styles.contentMovies}
         >
+        
         <TouchableOpacity style={styles.movieImageThumbnail}>
-            <Image 
+           <Image 
             source={MovieTheWheel}
+            style={styles.thumbImage}
             />
-            <Text></Text>
+
+            <Text style={[{top:100, left:230, zIndex:2, position:"absolute", color:"white",fontSize:18}]} >Watch now</Text>
+            <AntDesign name="playcircleo" size={19} color="white" style={styles.iconThumb} />
         </TouchableOpacity>
 
         <Text style={styles.movieText}>Continue Watching</Text>
         <FlatList 
         data={MOVIESWATCHING}
         keyExtractor={(item) => item.id}
-        renderItem={({item}) => <MoviesCard movieURL={item.moviesURL}/>}
+        renderItem={({item}) => <MoviesCard2 movieURL={item.moviesURL}/>}
         horizontal
         contentContainerStyle={styles.contentList}
         showsHorizontalScrollIndicator={false}
@@ -133,7 +139,7 @@ const styles = StyleSheet.create({
     movieImageThumbnail: {
         width:"100%",
         alignItems:"center",
-
+        
     },
 
     contentList: {
@@ -141,7 +147,20 @@ const styles = StyleSheet.create({
         paddingRight:30,
     },
 
-    contentMovies: {
-
+    thumbText: {
+        zIndex:1,
+        position:"absolute",
+        paddingTop:10
     },
+
+    thumbImage: {
+        zIndex:2,
+    },
+
+    iconThumb: {
+        top:103, 
+        left:205, 
+        zIndex:2, 
+        position:"absolute", 
+    }
 })
